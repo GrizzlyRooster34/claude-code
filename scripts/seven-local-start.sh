@@ -1,0 +1,6 @@
+#!/data/data/com.termux/files/usr/bin/sh
+export SEVEN_LLAMA_MODEL="${SEVEN_LLAMA_MODEL:-$HOME/models/llama/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf}"
+export SEVEN_LLAMA_PORT="${SEVEN_LLAMA_PORT:-8080}"
+export SEVEN_LLAMA_THREADS="${SEVEN_LLAMA_THREADS:-$(($(nproc)-1))}"
+cd vendor/llama.cpp/build/bin
+exec ./llama-server --host 127.0.0.1 --port "$SEVEN_LLAMA_PORT" --model "$SEVEN_LLAMA_MODEL" --ctx-size 8192 --parallel "$SEVEN_LLAMA_THREADS" --no-mmap

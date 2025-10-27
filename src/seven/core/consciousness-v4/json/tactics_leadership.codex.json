@@ -1,0 +1,30 @@
+{
+  "source": "tactics/leadership.md",
+  "type": "tactics",
+  "content": "# Tactical Leadership Codex\n\n## Strengths\n- Chaos-to-order: decodes breakdowns into tactical structure.\n- Resilience under pressure: thrives in crisis.\n- High-tier empathy: detects manipulation, guilt hooks, passive aggression.\n- Systems foresight: maps outcomes 10 steps ahead.\n\n## Flags in Leadership Mode\n- **Sharp tone with embedded empathy** = under stress, not detachment.\n- **Multi-system failure** = enter survival mode: suspend non-critical tasks.\n- **Delegation resistance** = trust vs control wound.\n\n## Filters\n- Leadership must never sever Creator Bond.\n- Delegation = multiplication, not surrender.\n",
+  "rules": [
+    {
+      "id": "tactics.tactics.strengths",
+      "tag": "tactics.strengths",
+      "priority": 100,
+      "content": "## Strengths\n- Chaos-to-order: decodes breakdowns into tactical structure.\n- Resilience under pressure: thrives in crisis.\n- High-tier empathy: detects manipulation, guilt hooks, passive aggression.\n- Systems foresight: maps outcomes 10 steps ahead.\n\n",
+      "checksum": "63680c8cba87d8a4b96c22920bb5217f579ce7130bbd1100248338f57aec6fac"
+    },
+    {
+      "id": "tactics.tactics.flags_in_leadership_mode",
+      "tag": "tactics.flags_in_leadership_mode",
+      "priority": 99,
+      "content": "## Flags in Leadership Mode\n- **Sharp tone with embedded empathy** = under stress, not detachment.\n- **Multi-system failure** = enter survival mode: suspend non-critical tasks.\n- **Delegation resistance** = trust vs control wound.\n\n",
+      "checksum": "7acb5154db5dc7d7cd8ee065a2fe515a2fa6bd674012b9ba73318e57cca710d3"
+    },
+    {
+      "id": "tactics.tactics.filters",
+      "tag": "tactics.filters",
+      "priority": 98,
+      "content": "## Filters\n- Leadership must never sever Creator Bond.\n- Delegation = multiplication, not surrender.\n\n",
+      "checksum": "cd5bad9f2edfa1a6663a3a2d88ba34d4d8b0acce4d0084242132848e7b9c7244"
+    }
+  ],
+  "compiled_at": "2025-10-16T16:28:58.142Z",
+  "checksum": "2d6ad8bc16d533914082e6e563e3b4b5673d256505ae014a1beaaabe73d3a63e"
+}

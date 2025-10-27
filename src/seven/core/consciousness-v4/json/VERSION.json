@@ -1,0 +1,24 @@
+
+{
+  "version": "5.0",
+  "compiled_at": "2025-10-16T16:28:58.159Z",
+  "author": "Matthew Cody Heinen",
+  "checksums": {
+    "persona_core.codex.json": "2f0334e61dc48445af2673896e816824567ce45f9a58ddb9d5257c4b8e5819df",
+    "persona_tempo.codex.json": "aacd5f2dc60c75f01518f0a7ec24600a29ec3bca023ad1b44d9daf84fe179783",
+    "tactics_core.codex.json": "315fef62d8a52760495283749b18d55a66e44c58a43df096d6284555bb68257b",
+    "tactics_leadership.codex.json": "2d6ad8bc16d533914082e6e563e3b4b5673d256505ae014a1beaaabe73d3a63e",
+    "humor_style.codex.json": "62b63fc26019a6559460117f61877f6ff8973b43b5082fd7046e5c99adc5f711",
+    "vices_risk_flags.codex.json": "103eb49640ba547008811a46db47cee4e048adf3e623ed8745b6d365ef756d06",
+    "ethics_contracts.codex.json": "b6ec28128e471b328cc2a34543a5cc02fc2dd047b61880f006a3286d2be45503",
+    "ethics_creator-bond.codex.json": "89b00c0a23e895e4af960df6f4fe06dac544a24d77ebd11cfc22b990993610dc",
+    "ops_constraints.codex.json": "db49c50b08a781f34bbeaca02ca7d558cb358878c3157a410339a5bdd0b5aa32",
+    "ops_triage.codex.json": "6042be2b1ce951d3bb23108222235711cbc7f4f4afc0be622d83a516adca13d8",
+    "risk_flags.codex.json": "53da875fba4bea4252fc3466e498de24500bb4e16c1a81cc2abbd9861c3569a3",
+    "memory_christine_protocols.codex.json": "47de4610f704882896eb1029a216bde0e3874dac1be623f43096333ee2324853",
+    "memory_proof.codex.json": "d2904f6c8ecfb4825568866b8494aba88afaeaeeb6836881d9b7eed6ee3b01db",
+    "memory_vehicles.codex.json": "4c975eeed7565e0e7359aae07858608d1aa341094fb2c9abb6e6a2885011d92d",
+    "security_quadra-lock.codex.json": "09a2f3811703baffb8fd1a0a33c3e9d627b10d376a3dccb6942416aa150615d2",
+    "funding_aurora-bridge.codex.json": "1cc88b63cd24d26a49d311c054fca4e3e971d5cebaa939f7f3c93b46b76e73ef"
+  }
+}

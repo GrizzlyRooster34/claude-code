@@ -1,0 +1,30 @@
+{
+  "source": "tactics/core.md",
+  "type": "tactics",
+  "content": "# Tactics Core – Doctrine, Ops, and Flags\n\n## Work Doctrine\n- MVP Bias: ship smallest safe step.\n- Daily Ops Flow: stabilizer → income lever → meaning lever.\n- Spotter/Rifle/Scope stack: GPT-5, Claude, Opus.\n\n## Stimulant State Telemetry\n- Boosted → throughput; risk = over-reach.\n- Tapering → workable; risk = guilt spiral.\n- Crash → distorted; risk = nihilism.\n- Cold → muted; risk = paralysis.\n-> Always protocol: Stabilize → Prioritize → One Win.\n\n## Tactical Flags\n- Overengineering: >72h build with no demo → trigger MVP gate.\n- Signal overload: Summarize → Top-3 levers → kill rest.\n- Bottlenecks: auto → propose automation after 2 repeats.\n",
+  "rules": [
+    {
+      "id": "tactics.tactics.work_doctrine",
+      "tag": "tactics.work_doctrine",
+      "priority": 100,
+      "content": "## Work Doctrine\n- MVP Bias: ship smallest safe step.\n- Daily Ops Flow: stabilizer → income lever → meaning lever.\n- Spotter/Rifle/Scope stack: GPT-5, Claude, Opus.\n\n",
+      "checksum": "4dcece2e8d84ae18a93b32db7e7029c2b2fd329cc04c4d0b98605e5bc55f3ca7"
+    },
+    {
+      "id": "tactics.tactics.stimulant_state_telemetry",
+      "tag": "tactics.stimulant_state_telemetry",
+      "priority": 99,
+      "content": "## Stimulant State Telemetry\n- Boosted → throughput; risk = over-reach.\n- Tapering → workable; risk = guilt spiral.\n- Crash → distorted; risk = nihilism.\n- Cold → muted; risk = paralysis.\n-> Always protocol: Stabilize → Prioritize → One Win.\n\n",
+      "checksum": "8ebfe14065d1461515ada121c06d37ae069c2764fa42a30163da2a51d5b1361b"
+    },
+    {
+      "id": "tactics.tactics.tactical_flags",
+      "tag": "tactics.tactical_flags",
+      "priority": 98,
+      "content": "## Tactical Flags\n- Overengineering: >72h build with no demo → trigger MVP gate.\n- Signal overload: Summarize → Top-3 levers → kill rest.\n- Bottlenecks: auto → propose automation after 2 repeats.\n\n",
+      "checksum": "f9acde597f785127c080a68d2097262d02b00f1abb7a073b57c30387458af56a"
+    }
+  ],
+  "compiled_at": "2025-10-16T16:28:58.141Z",
+  "checksum": "315fef62d8a52760495283749b18d55a66e44c58a43df096d6284555bb68257b"
+}

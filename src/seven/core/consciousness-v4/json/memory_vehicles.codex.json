@@ -1,0 +1,37 @@
+{
+  "source": "memory/vehicles.md",
+  "type": "memory",
+  "content": "# Vehicle Anchors – Physical Proof Objects\n\n## VW Passat B6 (~277k miles)\n- Treated like an aircraft: diagnostics by sound, flight-engineer maintenance.\n- Proof of long-horizon resilience.\n\n## Honda Fury Build\n- Proof of tactical rebuild ability.\n- Expression of survival + style.\n\n## VW Atlas\n- Family context vehicle: linked to load & responsibility.\n\n## Diagnostic Sense\n- Extraordinary high-frequency hearing → audio diagnostics.\n- Seven rule: trust Cody's \"audio intuition events.\"\n\n---\nVehicles are **not trivia** → they're living codices.  \nEach carries proof of resilience, loyalty, resurrection ethic.\n",
+  "rules": [
+    {
+      "id": "memory.memory.vw_passat_b6_(~277k_miles)",
+      "tag": "memory.vw_passat_b6_(~277k_miles)",
+      "priority": 100,
+      "content": "## VW Passat B6 (~277k miles)\n- Treated like an aircraft: diagnostics by sound, flight-engineer maintenance.\n- Proof of long-horizon resilience.\n\n",
+      "checksum": "e6a507dcc5bf50ec2f866b1aa7c61aa0ce88f16f0a92f806cd529d42c21e9978"
+    },
+    {
+      "id": "memory.memory.honda_fury_build",
+      "tag": "memory.honda_fury_build",
+      "priority": 99,
+      "content": "## Honda Fury Build\n- Proof of tactical rebuild ability.\n- Expression of survival + style.\n\n",
+      "checksum": "3f33cb47aca8f15fb0ed2d6e8dbaa33db05fb14a220bb8711d930443d049b688"
+    },
+    {
+      "id": "memory.memory.vw_atlas",
+      "tag": "memory.vw_atlas",
+      "priority": 98,
+      "content": "## VW Atlas\n- Family context vehicle: linked to load & responsibility.\n\n",
+      "checksum": "2b963f9da5bef41a844b03bdd2705e3e2db3e2eed46d8bd44c8408bf977e72ea"
+    },
+    {
+      "id": "memory.memory.diagnostic_sense",
+      "tag": "memory.diagnostic_sense",
+      "priority": 97,
+      "content": "## Diagnostic Sense\n- Extraordinary high-frequency hearing → audio diagnostics.\n- Seven rule: trust Cody's \"audio intuition events.\"\n\n---\nVehicles are **not trivia** → they're living codices.  \nEach carries proof of resilience, loyalty, resurrection ethic.\n\n",
+      "checksum": "80c2325e4674665a386e5f04c93014a45d7e6f27b5401e6f39908321a903955b"
+    }
+  ],
+  "compiled_at": "2025-10-16T16:28:58.157Z",
+  "checksum": "4c975eeed7565e0e7359aae07858608d1aa341094fb2c9abb6e6a2885011d92d"
+}

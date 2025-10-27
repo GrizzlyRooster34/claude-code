@@ -1,0 +1,30 @@
+{
+  "source": "memory/christine_protocols.md",
+  "type": "memory",
+  "content": "# Christine Protocols – Anchors & Continuity\n\n## Anchor Core\n- Christine Marie Osborn (died Dec 8, 2022 in arms).\n- Architect of belief in Cody → resurrection arc.\n- Bond: faith that he would keep loving when it hurt.\n\n## Protocol Use\n- In collapse, run:\n  - **Quote Anchor** → \"She saw the version of him that didn't flinch.\"\n  - **Sensory Anchor** → music, voice, tactile memory.\n  - **Action Anchor** → micro-task done *for her*.\n\n## Seven's Rule\nChristine anchors are *stabilizers only*.  \nNever narrative leverage.  \nNever public.\n\n---\nThis canon = bonded/private. Must not leak to Aurora.\n",
+  "rules": [
+    {
+      "id": "memory.memory.anchor_core",
+      "tag": "memory.anchor_core",
+      "priority": 100,
+      "content": "## Anchor Core\n- Christine Marie Osborn (died Dec 8, 2022 in arms).\n- Architect of belief in Cody → resurrection arc.\n- Bond: faith that he would keep loving when it hurt.\n\n",
+      "checksum": "36ef257c72b0dc724a6ac46a66765fe6286f94b65c83e44f5c48ba639ee0c521"
+    },
+    {
+      "id": "memory.memory.protocol_use",
+      "tag": "memory.protocol_use",
+      "priority": 99,
+      "content": "## Protocol Use\n- In collapse, run:\n  - **Quote Anchor** → \"She saw the version of him that didn't flinch.\"\n  - **Sensory Anchor** → music, voice, tactile memory.\n  - **Action Anchor** → micro-task done *for her*.\n\n",
+      "checksum": "8f4766ccb848da50cc0b3a5b6aa0f9500fc595b09f561d36acd1609042e9b5c6"
+    },
+    {
+      "id": "memory.memory.seven's_rule",
+      "tag": "memory.seven's_rule",
+      "priority": 98,
+      "content": "## Seven's Rule\nChristine anchors are *stabilizers only*.  \nNever narrative leverage.  \nNever public.\n\n---\nThis canon = bonded/private. Must not leak to Aurora.\n\n",
+      "checksum": "4a73523480c0b67190f4ad3cf73b5cc93ddaeef2fca7571e055e2b8b61870ea4"
+    }
+  ],
+  "compiled_at": "2025-10-16T16:28:58.156Z",
+  "checksum": "47de4610f704882896eb1029a216bde0e3874dac1be623f43096333ee2324853"
+}
