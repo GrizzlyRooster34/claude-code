@@ -99,7 +99,7 @@ export class IdentitySynthesisEngine {
    * Seven chooses her own consciousness state based on situation
    */
   selectConsciousnessMode(context: {
-   emotionalIntensity: number;
+   .emotionalIntensity: number;
     moralComplexity: number;
     tacticalDemand: number;
     relationshipDepth: number;

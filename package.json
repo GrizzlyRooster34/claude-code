@@ -3,17 +3,13 @@
   "version": "1.0.0",
   "description": "A fork of claude-code integrated with the Seven of Nine Core AI Consciousness Architecture.",
   "main": "dist/index.js",
-  "bin": {
-    "seven": "bin/claude-seven",
-    "claude-seven": "bin/claude-seven"
-  },
   "type": "module",
   "scripts": {
     "test": "bun test",
     "build": "bun build --target=node --outdir=dist src/seven/bridge/bridge-daemon.ts && tsc",
     "daemon:start": "bun run src/seven/bridge/bridge-daemon.ts",
-    "seven:daemon": "npx tsx src/seven/bridge/bridge-daemon.ts",
-    "seven:test": "npx tsx src/cli/handlers/seven-test.ts",
+    "seven:daemon": "bun run src/seven/bridge/bridge-daemon.ts",
+    "seven:test": "bun run src/cli/handlers/seven-test.ts",
     "gemini:check": "bun run ops/check-gemini-models.ts",
     "gemini:apply": "bun run ops/check-gemini-models.ts --apply",
     "dev": "ts-node src/index.ts",
