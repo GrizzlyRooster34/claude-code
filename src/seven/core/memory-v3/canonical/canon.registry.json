@@ -1,0 +1,10 @@
+{
+  "_metadata": {
+    "version": "1.0.0",
+    "created_at": "2025-01-11T14:32:00Z",
+    "description": "Canonical Memory Integrity Registry - Seven of Nine Core",
+    "doctrine": "Canonical memories are sacrosanct. They are write-once, append-only, and never altered post-ingestion.",
+    "curator": "Cody Heinen",
+    "guardian": "CanonicalGuard.ts"
+  }
+}
