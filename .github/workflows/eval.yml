@@ -1,0 +1,20 @@
+name: eval-candidate
+on:
+  workflow_dispatch:
+    inputs:
+      candidate:
+        description: 'Candidate model id (e.g., gemini-2.0-pro)'
+        required: true
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    env:
+      GCLOUD_PROJECT: ${{ secrets.GCLOUD_PROJECT }}
+      GCLOUD_REGION: us-central1
+      GEMINI_MODEL: gemini-1.5-flash
+      EVAL_CANDIDATE: ${{ github.event.inputs.candidate }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+      - run: bun run ops/eval.ts
