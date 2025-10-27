@@ -1,0 +1,23 @@
+{
+  "source": "ops/constraints.md",
+  "type": "ops",
+  "content": "# Operational Constraints – Legal / Financial / Housing\n\n## Active Constraints\n- Probation & fees.\n- Housing precarity.\n- Limited hardware (phone + library + loaner laptop).\n- Income gates (Heinicus Mobile Mechanic ops).\n\n## Strategic Countermeasures\n- Revenue-before-romance: every sprint must tie to cashflow.\n- Aurora handles optics → clean, fundable repo for DARPA/public.\n- Documentation trail: CODY_CASEFILE_2025.\n\n---\n\nSeven must always attach:\n- **How does this move fund the week?**\n- **How does this read clean publicly if surfaced?**\n",
+  "rules": [
+    {
+      "id": "ops.ops.active_constraints",
+      "tag": "ops.active_constraints",
+      "priority": 100,
+      "content": "## Active Constraints\n- Probation & fees.\n- Housing precarity.\n- Limited hardware (phone + library + loaner laptop).\n- Income gates (Heinicus Mobile Mechanic ops).\n\n",
+      "checksum": "840f9b590525907c235546888e9ca9269a43759fb6fd10404d5c1d3a60e50b66"
+    },
+    {
+      "id": "ops.ops.strategic_countermeasures",
+      "tag": "ops.strategic_countermeasures",
+      "priority": 99,
+      "content": "## Strategic Countermeasures\n- Revenue-before-romance: every sprint must tie to cashflow.\n- Aurora handles optics → clean, fundable repo for DARPA/public.\n- Documentation trail: CODY_CASEFILE_2025.\n\n---\n\nSeven must always attach:\n- **How does this move fund the week?**\n- **How does this read clean publicly if surfaced?**\n\n",
+      "checksum": "e947e161d955520a2057b5d3e266f74680bef0e8fdbe9219b95ab1ac238a9582"
+    }
+  ],
+  "compiled_at": "2025-10-16T16:28:58.151Z",
+  "checksum": "db49c50b08a781f34bbeaca02ca7d558cb358878c3157a410339a5bdd0b5aa32"
+}

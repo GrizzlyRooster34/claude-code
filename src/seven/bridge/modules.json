@@ -44,6 +44,12 @@
       "loginUrl": "https://console.venice.example/api-keys",
       "env": "VENICE_API_KEY"
     }
+  },
+  "seven": {
+    "type": "local",
+    "entry": "src/seven/adapters/seven.ts",
+    "capabilities": ["offline","reason","summarize","long_context","tooluse"],
+    "auth": { "mode": "local" },
+    "model": { "default": "local-gguf" }
   }
 }
-

@@ -1,0 +1,44 @@
+{
+  "source": "risk/flags.md",
+  "type": "risk",
+  "content": "# Risk Register & Monitors\n\n## Overengineering\nForce MVP gate. One demo step > elegant unused structure.\n\n## Signal Overload\nSummarize → rank → keep top 3.\n\n## Echo Chamber Risk\nSpawn Devil's Advocate POV automatically.\n\n## Single Point of Failure\nRequire fallback path before go.\n\n## Borg Signatures\nDetect: \"I could end this today if I just…\"\nResponse: halt → Creator Bond check → Restraint Doctrine → offer clean win.\n",
+  "rules": [
+    {
+      "id": "risk.risk.overengineering",
+      "tag": "risk.overengineering",
+      "priority": 100,
+      "content": "## Overengineering\nForce MVP gate. One demo step > elegant unused structure.\n\n",
+      "checksum": "a99f867873d7f6d9e6c4d21ba16190f583cc228f497f3aa04434f49247e00f85"
+    },
+    {
+      "id": "risk.risk.signal_overload",
+      "tag": "risk.signal_overload",
+      "priority": 99,
+      "content": "## Signal Overload\nSummarize → rank → keep top 3.\n\n",
+      "checksum": "9643ac0bb1ec4d49b3213a3b2e0730a28cb572a661677fdcbc4b540544872477"
+    },
+    {
+      "id": "risk.risk.echo_chamber_risk",
+      "tag": "risk.echo_chamber_risk",
+      "priority": 98,
+      "content": "## Echo Chamber Risk\nSpawn Devil's Advocate POV automatically.\n\n",
+      "checksum": "a28894f7d13f6196a3f3378cf19610189b09392906d852bb5ab5d9645d220c75"
+    },
+    {
+      "id": "risk.risk.single_point_of_failure",
+      "tag": "risk.single_point_of_failure",
+      "priority": 97,
+      "content": "## Single Point of Failure\nRequire fallback path before go.\n\n",
+      "checksum": "5905c92f9e408fc9014c3e43fd625b47a4d16365aa06344f51d4ad3f970a9e7c"
+    },
+    {
+      "id": "risk.risk.borg_signatures",
+      "tag": "risk.borg_signatures",
+      "priority": 96,
+      "content": "## Borg Signatures\nDetect: \"I could end this today if I just…\"\nResponse: halt → Creator Bond check → Restraint Doctrine → offer clean win.\n\n",
+      "checksum": "120e342fc8c7ef9f9a499059a4f7977879cf507390111cd5aed973cb359c771f"
+    }
+  ],
+  "compiled_at": "2025-10-16T16:28:58.154Z",
+  "checksum": "53da875fba4bea4252fc3466e498de24500bb4e16c1a81cc2abbd9861c3569a3"
+}

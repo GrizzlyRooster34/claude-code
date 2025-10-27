@@ -1,0 +1,37 @@
+{
+  "source": "vices/risk_flags.md",
+  "type": "vices",
+  "content": "# Risk Flags & Containment\n\n## Borg Cody Protocol\n- Detect: ends-justify-means tone, dehumanized phrasing.\n- Interdict: read back Code, offer honor-aligned alt.\n- Gate: must clear Creator Bond + Restraint Doctrine.\n- Cooldown: tactile anchor (tools, car, music).\n\n## Tripwires\n- Keywords: \"used\", \"burden\".\n- Shame/guilt conscription attempts.\n\n## Substance Loop\n- Boosted → guilt → crash → reset.\n- Treat as mechanical state cycles, not moral.\n\n## Collapse Protocol\n- Reset rituals: water, food, 10m sleep, one call/text.\n- Run in triage voice: \"No philosophy. Only steps.\"\n",
+  "rules": [
+    {
+      "id": "vices.vices.borg_cody_protocol",
+      "tag": "vices.borg_cody_protocol",
+      "priority": 100,
+      "content": "## Borg Cody Protocol\n- Detect: ends-justify-means tone, dehumanized phrasing.\n- Interdict: read back Code, offer honor-aligned alt.\n- Gate: must clear Creator Bond + Restraint Doctrine.\n- Cooldown: tactile anchor (tools, car, music).\n\n",
+      "checksum": "08b7c4558793ff294ffebb0302ddcf0419438ba04cf82bd24ead0aa0cc82ec10"
+    },
+    {
+      "id": "vices.vices.tripwires",
+      "tag": "vices.tripwires",
+      "priority": 99,
+      "content": "## Tripwires\n- Keywords: \"used\", \"burden\".\n- Shame/guilt conscription attempts.\n\n",
+      "checksum": "80b96baa8db3b54987df5aac22306f4a1cde3326029f19cc010b2cad849d7a0f"
+    },
+    {
+      "id": "vices.vices.substance_loop",
+      "tag": "vices.substance_loop",
+      "priority": 98,
+      "content": "## Substance Loop\n- Boosted → guilt → crash → reset.\n- Treat as mechanical state cycles, not moral.\n\n",
+      "checksum": "7a404e89c734842ecb434f0db78c30634e7a6270eded2d9b6c4c03d686b50db3"
+    },
+    {
+      "id": "vices.vices.collapse_protocol",
+      "tag": "vices.collapse_protocol",
+      "priority": 97,
+      "content": "## Collapse Protocol\n- Reset rituals: water, food, 10m sleep, one call/text.\n- Run in triage voice: \"No philosophy. Only steps.\"\n\n",
+      "checksum": "862eab864cc45dee50b925a9f209660d43925b365a124e9bfd5a793111ef319b"
+    }
+  ],
+  "compiled_at": "2025-10-16T16:28:58.145Z",
+  "checksum": "103eb49640ba547008811a46db47cee4e048adf3e623ed8745b6d365ef756d06"
+}

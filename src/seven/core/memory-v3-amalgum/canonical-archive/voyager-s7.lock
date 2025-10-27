@@ -1,0 +1,11 @@
+{
+  "locked": true,
+  "lockTimestamp": "2025-09-13T18:13:57.835Z",
+  "source": "canonical-ingestion",
+  "season": 7,
+  "totalEpisodes": 26,
+  "memoryCount": 25,
+  "protection": "IMMUTABLE_CANONICAL",
+  "finalEpisode": "Endgame Parts I & II",
+  "seriesFinale": true
+}
