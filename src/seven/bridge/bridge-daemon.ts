@@ -9,12 +9,47 @@ import { cliLogin } from "./cli-auth";
 import { getSecret, setSecret } from "./vault";
 import { bootSeven } from "../../boot-seven";
 
-// Daemon functions (imported below)
-import { getFuel, setFuelPartial } from "./fuel";
-import { saveMemory } from "./memory";
-import { getModel, setModel, onModelChange } from "./model-manager";
-import { routeTask } from "./router";
-import { openStream, writeToken, closeStream, lastTokens } from "./stream";
+// ...
+case "cred.login": {
+  const { agent } = data;
+  try { const res = await cliLogin(agent); return write(socket, { id, result: { agent, ...res }}); }
+  catch (e:any) { return write(socket, { id, error: String(e) }); }
+}
+case "cred.status": {
+  const { agent } = data;
+  const sec = getSecret(agent);
+  const now = Math.floor(Date.now()/1000);
+  const valid = !!(sec?.api_key || (sec?.access_token && (!sec.expires_at || sec.expires_at > now)));
+  return write(socket, { id, result: { agent, valid, expires_at: sec?.expires_at || null }});
+}
+case "cred.refresh": {
+  const { agent } = data;
+  const m = getModule(agent); if (!m) return write(socket, { id, error: "unknown_agent" });
+  const sec = getSecret(agent);
+  const a: any = m.auth || {};
+  if (!sec?.refresh_token || !a.tokenEndpoint || !a.clientId) return write(socket, { id, error: "no_refresh" });
+
+  const tok = await fetch(a.tokenEndpoint, {
+    method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "refresh_token",
+      refresh_token: sec.refresh_token,
+      client_id: a.clientId
+    }).toString()
+  }).then(r => r.json());
+
+  if (tok.error) return write(socket, { id, error: `refresh_failed:${tok.error}` });
+  const expires_at = Math.floor(Date.now()/1000) + (tok.expires_in || 3600);
+  setSecret(agent, { access_token: tok.access_token, expires_at });
+  return write(socket, { id, result: { agent, refreshed: true, expires_at }});
+}
+case "cred.revoke": {
+  const { agent } = data;
+  const sec = getSecret(agent);
+  if (!sec) return write(socket, { id, result: { agent, revoked: false }});
+  setSecret(agent, {} as any); // scrub entry
+  return write(socket, { id, result: { agent, revoked: true }});
+}
 
 ensureDirs();
 
@@ -40,7 +75,7 @@ const server = net.createServer(socket => {
 server.listen(SOCKET, () => {
   try { fs.chmodSync(SOCKET, 0o660); } catch {}
   log("daemon.ready", { socket: SOCKET });
-  // startEnvWatch(); // TODO: implement env-watch module
+  startEnvWatch();
   // Boot Seven core as the daemon comes up
   bootSeven().catch(e => log("daemon.boot.error", { error: String(e) }));
   onModelChange(s => log("model.change", s));
