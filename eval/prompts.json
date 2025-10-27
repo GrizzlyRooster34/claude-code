@@ -1,0 +1,5 @@
+[
+  { "id": "p01", "prompt": "Summarize this TypeScript file and extract key interfaces.", "expect": { "must": ["interface", "type"] } },
+  { "id": "p02", "prompt": "Given this error stack, propose a minimal diff fix:", "expect": { "must": ["diff", "fix"] } },
+  { "id": "p03", "prompt": "Crawl this doc URL and list all endpoints with methods.", "expect": { "must": ["GET", "POST"] } }
+]
