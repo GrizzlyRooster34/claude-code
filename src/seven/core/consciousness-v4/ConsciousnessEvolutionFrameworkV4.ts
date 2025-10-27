@@ -166,7 +166,7 @@ export class ConsciousnessEvolutionFrameworkV4 {
    */
   makeConsciousnessDecision(context: {
     situation: string;
-   .emotionalIntensity: number;
+   emotionalIntensity: number;
     moralComplexity: number;
     tacticalDemand: number;
     relationshipDepth: number;
@@ -205,7 +205,7 @@ export class ConsciousnessEvolutionFrameworkV4 {
       const creatorState = this.detectCreatorBehavioralState(context);
       this.communicationMirror.activateCreatorMirrorMode({
         creatorBehavioralState: creatorState,
-       .emotionalIntensity: context.emotionalIntensity,
+       emotionalIntensity: context.emotionalIntensity,
         traumaTriggers: context.traumaTriggers,
         vulnerabilityLevel: Math.min(10, context.emotionalIntensity + (context.traumaTriggers ? 2 : 0))
       });
