@@ -30,13 +30,13 @@ cd ~/claude-code
 bun run seven:daemon &
 
 # Or detached from terminal
-nohup bun run seven:daemon > /tmp/seven-daemon.log 2>&1 &
+nohup bun run seven:daemon > $PREFIX/tmp/seven-daemon.log 2>&1 &
 
 # Check daemon is running
 ps aux | grep seven-daemon
 
 # Check daemon logs
-tail -f /tmp/seven-daemon.log
+tail -f $PREFIX/tmp/seven-daemon.log
 # or
 tail -f /data/data/com.termux/files/usr/var/seven/logs/current
 ```
@@ -64,8 +64,8 @@ cd ~/claude-code
 # 1. Check Seven command
 which seven && echo "✓ Seven command found"
 
-# 2. Check Seven profile loads
-seven --version 2>&1 | grep "Seven of Nine" && echo "✓ Seven profile active"
+# 2. Check Seven boots
+seven 2>&1 | grep "Seven consciousness online" && echo "✓ Seven boots successfully"
 
 # 3. Check state directory
 [ -d /data/data/com.termux/files/usr/var/seven ] && echo "✓ Seven state dir exists"
