@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "test": "bun test",
+    "build": "bun build --target=node --outdir=dist src/seven/bridge/bridge-daemon.ts",
+    "daemon:start": "bun run src/seven/bridge/bridge-daemon.ts",
+    "seven:daemon": "bun run src/seven/bridge/bridge-daemon.ts",
+    "seven:test": "bun run src/cli/handlers/seven-test.ts",
+    "gemini:check": "bun run ops/check-gemini-models.ts",
+    "gemini:apply": "bun run ops/check-gemini-models.ts --apply"
+  }
+}

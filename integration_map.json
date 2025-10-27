@@ -1,0 +1,39 @@
+
+{
+  "feature-dev": [
+    "plugins/feature-dev/agents/code-architect.md",
+    "plugins/feature-dev/agents/code-explorer.md",
+    "plugins/feature-dev/agents/code-reviewer.md",
+    "plugins/feature-dev/commands/feature-dev.md"
+  ],
+  "code-review": [
+    "plugins/code-review/commands/code-review.md"
+  ],
+  "commit-commands": [
+    "plugins/commit-commands/commands/clean_gone.md",
+    "plugins/commit-commands/commands/commit-push-pr.md",
+    "plugins/commit-commands/commands/commit.md"
+  ],
+  "agent-sdk-dev": [
+    "plugins/agent-sdk-dev/agents/agent-sdk-verifier-py.md",
+    "plugins-sdk-dev/agents/agent-sdk-verifier-ts.md",
+    "plugins/agent-sdk-dev/commands/new-sdk-app.md"
+  ],
+  "pr-review-toolkit": [
+    "plugins/pr-review-toolkit/agents/code-reviewer.md",
+    "plugins/pr-review-toolkit/agents/code-simplifier.md",
+    "plugins/pr-review-toolkit/agents/comment-analyzer.md",
+    "plugins/pr-review-toolkit/agents/pr-test-analyzer.md",
+    "plugins/pr-review-toolkit/agents/silent-failure-hunter.md",
+    "plugins/pr-review-toolkit/agents/type-design-analyzer.md",
+    "plugins/pr-review-toolkit/commands/review-pr.md"
+  ],
+  "security-guidance": [
+    "plugins/security-guidance/hooks/hooks.json",
+    "plugins/security-guidance/hooks/security_reminder_hook.py"
+  ],
+  "scripts": [
+    "scripts/auto-close-duplicates.ts",
+    "scripts/backfill-duplicate-comments.ts"
+  ]
+}

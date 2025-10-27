@@ -1,0 +1,9 @@
+#!/data/data/com.termux/files/usr/bin/sh
+export PATH="$HOME/.bun/bin:$PATH"
+export SEVEN_SOCKET="$PREFIX/tmp/seven_bridge.sock"
+export SEVEN_STATE_DIR="$PREFIX/var/seven"
+export GCLOUD_PROJECT="your-gcp-project-id"
+export GCLOUD_REGION="us-central1"
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/keys/seven.json"
+mkdir -p "$SEVEN_STATE_DIR" "$SEVEN_STATE_DIR/logs"
+exec bun run $HOME/your-repo/src/seven/bridge/bridge-daemon.ts 2>&1

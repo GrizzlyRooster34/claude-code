@@ -1,0 +1,49 @@
+{
+  "gemini": {
+    "type": "api",
+    "entry": "src/seven/adapters/gemini.ts",
+    "capabilities": ["search","summary","verify","doc-ops"],
+    "auth": { "mode": "gcp_adc" }
+  },
+  "claude": {
+    "type": "local",
+    "entry": "src/seven/adapters/claude.ts",
+    "capabilities": ["code","logic","refactor","test"],
+    "auth": { "mode": "local" }
+  },
+  "deepAgent": {
+    "type": "api",
+    "entry": "src/seven/adapters/deepAgent.ts",
+    "capabilities": ["router","workflow","long-run"],
+    "auth": {
+      "mode": "cli_login",
+      "loginUrl": "https://app.deepagent.example/login/device",
+      "issuer":   "https://accounts.deepagent.example",
+      "scopes":   ["agent.run","agent.manage"],
+      "clientId": "YOUR_CLIENT_ID",
+      "tokenEndpoint": "https://accounts.deepagent.example/oauth/token"
+    }
+  },
+  "openai": {
+    "type": "api",
+    "entry": "src/seven/adapters/openai.ts",
+    "capabilities": ["reason","write","judge"],
+    "auth": {
+      "mode": "cli_login",
+      "loginUrl": "https://platform.openai.com/api-keys",
+      "env": "OPENAI_API_KEY"
+    },
+    "model": { "default": "gpt-4.1-mini" }
+  },
+  "venice": {
+    "type": "api",
+    "entry": "src/seven/adapters/venice.ts",
+    "capabilities": ["memory.long","emotion","context"],
+    "auth": {
+      "mode": "cli_login",
+      "loginUrl": "https://console.venice.example/api-keys",
+      "env": "VENICE_API_KEY"
+    }
+  }
+}
+
