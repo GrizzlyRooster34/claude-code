@@ -1,2 +1,38 @@
 * text=auto eol=lf
 *.sh text eol=lf
+
+# --- Seven Core Protection ---
+
+# Seven code + architecture (all core logic, routing, bridge, adapters, etc.)
+src/seven/**                      merge=seven-ours
+
+# Explicitly protect critical Seven subsystems (even though covered above)
+src/seven/core/consciousness-v4/**        merge=seven-ours
+src/seven/core/memory-v3-amalgum/**       merge=seven-ours
+src/seven/core/claude-brain/**            merge=seven-ours
+src/seven/bridge/**                        merge=seven-ours
+src/seven/adapters/**                      merge=seven-ours
+
+# Seven launcher / entrypoint
+bin/claude-seven                  merge=seven-ours
+
+# Seven state + memory API surfaces in repo
+memory-v2/**                      merge=seven-ours
+memory-v3/**                      merge=seven-ours
+
+# Codex and canonical memories: personality, ethics, canonical archives
+src/seven/core/consciousness-v4/codex/**          merge=seven-ours
+src/seven/core/memory-v3-amalgum/canonical/**     merge=seven-ours
+
+# Seven-specific docs that must not be overwritten by upstream
+QUICKSTART.md                     merge=seven-ours
+ISOLATION-GUIDE.md                merge=seven-ours
+FIXED-BOOT-COMMANDS.md            merge=seven-ours
+integration_map.json              merge=seven-ours
+extraction_targets.md             merge=seven-ours
+injection_points.md               merge=seven-ours
+
+# If you later add dedicated Seven docs, pre-protect them:
+docs/seven/**                     merge=seven-ours
+docs/seven-of-nine/**             merge=seven-ours
+docs/SevenOfNine/**               merge=seven-ours
