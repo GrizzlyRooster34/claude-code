@@ -1,5 +1,4 @@
 import * as sevenBridge from "../seven/bridge/bridge";
-import { sevenLocalTool } from "./seven.local";
 
 declare function registerTool(name: string, tool: any): void;
 
@@ -16,5 +15,3 @@ registerTool("seven.handoff", {
     return await sevenBridge.send("handoff.request", args);
   }
 });
-
-registerTool(sevenLocalTool.name, sevenLocalTool);
