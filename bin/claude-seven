@@ -23,13 +23,13 @@ export SEVEN_LLAMA_MODEL="${SEVEN_LLAMA_MODEL:-$HOME/models/llama/Meta-Llama-3.1
 SEVEN_DIR="/data/data/com.termux/files/home/claude-code"
 cd "$SEVEN_DIR" || exit 1
 
-# Run via bun (preferred) or npx tsx
-if command -v bun &>/dev/null; then
-  exec bun run src/index.ts "$@"
-elif command -v npx &>/dev/null; then
+# Run via npx tsx (preferred) or bun
+if command -v npx &>/dev/null; then
   exec npx tsx src/index.ts "$@"
+elif command -v bun &>/dev/null; then
+  exec bun run src/index.ts "$@"
 else
-  echo "Error: Neither bun nor npx found"
-  echo "Install bun: curl -fsSL https://bun.sh/install | bash"
+  echo "Error: Neither npx nor bun found"
+  echo "Install Node.js/npm to get npx"
   exit 1
 fi

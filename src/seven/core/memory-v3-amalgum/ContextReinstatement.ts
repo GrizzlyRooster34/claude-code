@@ -227,7 +227,7 @@ export interface PhysicalContext {
   
   biologicalRhythms: {
     circadianPhase: string;
-    ultradian cycles: string;
+    ultradianCycles: string;
     performancePeaks: string[];
     biologicalOptimization: number;
   };
@@ -287,7 +287,7 @@ export interface SituationalContext {
   decisionContext: {
     decisionType: string;
     availableOptions: string[];
-    decision criteria: string[];
+    decisionCriteria: string[];
     stakeholders: string[];
   };
 }
@@ -840,7 +840,7 @@ export class ContextReinstatementSystem {
 
     const biologicalRhythms = {
       circadianPhase: this.determineCircadianPhase(targetMemory),
-      ultradian cycles: this.identifyUltradianCycles(targetMemory),
+      ultradianCycles: this.identifyUltradianCycles(targetMemory),
       performancePeaks: this.identifyPerformancePeaks(targetMemory, contextualMemories),
       biologicalOptimization: this.calculateBiologicalOptimization(targetMemory)
     };

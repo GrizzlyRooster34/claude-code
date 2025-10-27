@@ -1,11 +1,11 @@
 // Wire Memory-v3-Amalgum
 import { TemporalPersonalityEngine } from "../memory-v3-amalgum/TemporalPersonalityEngine";
 import { CanonicalIngestion }        from "../memory-v3-amalgum/CanonicalIngestion";
-import { ContextReinstatement }      from "../memory-v3-amalgum/ContextReinstatement";
+import { ContextReinstatementSystem } from "../memory-v3-amalgum/ContextReinstatement";
 
 const tpe = new TemporalPersonalityEngine();
 const ingest = new CanonicalIngestion();
-const reinstate = new ContextReinstatement();
+const reinstate = new ContextReinstatementSystem();
 
 export async function initializeMemory(): Promise<void> {
   if (typeof (tpe as any).initialize === "function") {
