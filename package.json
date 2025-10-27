@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A fork of claude-code integrated with the Seven of Nine Core AI Consciousness Architecture.",
   "main": "dist/index.js",
+  "bin": {
+    "seven": "bin/claude-seven",
+    "claude-seven": "bin/claude-seven"
+  },
   "type": "module",
   "scripts": {
     "test": "bun test",
