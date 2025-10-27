@@ -7,6 +7,7 @@ import { v4 as uuid } from "uuid";
 import { DEFAULT_SOCKET, ensureDirs } from "./paths";
 import { cliLogin } from "./cli-auth";
 import { getSecret, setSecret } from "./vault";
+import { bootSeven } from "../../boot-seven";
 
 // ...
 case "cred.login": {
@@ -75,6 +76,8 @@ server.listen(SOCKET, () => {
   try { fs.chmodSync(SOCKET, 0o660); } catch {}
   log("daemon.ready", { socket: SOCKET });
   startEnvWatch();
+  // Boot Seven core as the daemon comes up
+  bootSeven().catch(e => log("daemon.boot.error", { error: String(e) }));
   onModelChange(s => log("model.change", s));
 });
 
