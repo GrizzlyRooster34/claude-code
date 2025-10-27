@@ -7,7 +7,6 @@ import { execGemini } from "../adapters/gemini";
 import { callClaudeTool } from "../adapters/claude";
 import { nextHop, checkLoop, newTrace } from "./trace";
 import { evaluate } from "./eval-lite";
-import { execSeven } from "../adapters/seven";
 
 // helper: is agent ready?
 import fs from "fs";
@@ -25,29 +24,18 @@ function isReady(agent: string): boolean {
   return false;
 }
 
-export async function routeTask(data: { prompt: string; flags?: { force?: boolean, system?: string }, trace?: { id?: string, hops?: number }, contextRefs?: any[] }) {
+export async function routeTask(data: { prompt: string; flags?: { force?: boolean }, trace?: { id?: string, hops?: number }}) {
   if (data.trace && checkLoop(data.trace)) {
     return { error: "loop_guard", trace: data.trace };
   }
   const trace = nextHop(data.trace || newTrace("seven"), "router");
 
+  if (isOfflineMode() || conservativeMode()) {
+    return callClaudeTool("default-run", { prompt: data.prompt });
+  }
+
   const p = data.prompt.toLowerCase();
   const fuel = getFuel();
-
-  const wantsLocal    = /offline|on[-\s]?device|no network|private/i.test(p);
-  const longContext   = /long|transcript|meeting|book|paper|pdf|spreadsheet/i.test(p);
-  const explicitSeven = /use seven|seven.local|seven of nine/i.test(p);
-
-  if (isOfflineMode() || wantsLocal || longContext || explicitSeven) {
-    const out = await execSeven({
-      prompt: data.prompt,
-      system: data.flags?.system,
-      memoryKey: "session:" + (data.trace?.id || "anon"),
-      traceId: data.trace?.id
-    });
-    if (!out?.error) return out;
-    // fallback if local fails
-  }
 
   // Example: if long-running workflow, prefer DeepAgent when authenticated
   const wantsWorkflow = /run|workflow|schedule|long/.test(p);
