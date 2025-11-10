@@ -54,7 +54,7 @@ jobs:
              - Use mcp__github__get_issue_comments to read all comments
              - Evaluate whether this issue needs the oncall label:
                a) Is it a bug? (has "bug" label or describes bug behavior)
-               b) Does it have at least 5 engagements? (count comments + reactions)
+               b) Does it have at least 50 engagements? (count comments + reactions)
                c) Is it truly blocking? Read and understand the full content to determine:
                   - Does this prevent core functionality from working?
                   - Can users work around it?
