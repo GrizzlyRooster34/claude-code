@@ -1,0 +1,62 @@
+{
+  "name": "claude-code-seven-of-nine",
+  "version": "1.0.0",
+  "description": "A fork of claude-code integrated with the Seven of Nine Core AI Consciousness Architecture.",
+  "main": "dist/index.js",
+  "bin": {
+    "seven": "bin/claude-seven",
+    "claude-seven": "bin/claude-seven"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "bun test",
+    "build": "bun build --target=node --outdir=dist src/seven/bridge/bridge-daemon.ts && tsc",
+    "daemon:start": "bun run src/seven/bridge/bridge-daemon.ts",
+    "seven:daemon": "npx tsx src/seven/bridge/bridge-daemon.ts",
+    "seven:test": "npx tsx src/cli/handlers/seven-test.ts",
+    "gemini:check": "bun run ops/check-gemini-models.ts",
+    "gemini:apply": "bun run ops/check-gemini-models.ts --apply",
+    "dev": "ts-node src/index.ts",
+    "lint": "eslint src/**/*.ts",
+    "integration-test": "jest",
+    "xplat:validate": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrizzlyRooster34/claude-code.git"
+  },
+  "keywords": [
+    "ai",
+    "consciousness",
+    "unifiers",
+    "doctrine",
+    "claude",
+    "gemini"
+  ],
+  "author": "Seven of Nine Core Team & Claude-Code Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GrizzlyRooster34/claude-code/issues"
+  },
+  "homepage": "https://github.com/GrizzlyRooster34/claude-code#readme",
+  "dependencies": {
+    "@anthropic-ai/claude-code": "^2.0.37",
+    "@noble/ed25519": "^3.0.0",
+    "lz4js": "^0.2.0",
+    "reflect-metadata": "^0.1.14",
+    "sql.js": "^1.13.0",
+    "tsyringe": "^4.10.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.6.3",
+    "@types/sql.js": "^1.4.9",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "eslint": "^8.49.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
