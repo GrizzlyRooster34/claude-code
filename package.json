@@ -40,11 +40,15 @@
   },
   "homepage": "https://github.com/GrizzlyRooster34/claude-code#readme",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.69.0",
+    "@google-ai/generativelanguage": "^3.5.0",
     "@noble/ed25519": "^3.0.0",
     "lz4js": "^0.2.0",
+    "openai": "^6.9.0",
     "reflect-metadata": "^0.1.14",
     "sql.js": "^1.13.0",
-    "tsyringe": "^4.10.0"
+    "tsyringe": "^4.10.0",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
