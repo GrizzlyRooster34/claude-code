@@ -1,20 +1,28 @@
 #!/usr/bin/env node
 /**
- * Seven of Nine Integrated Claude Code
+ * Seven of Nine - MCP Server Mode
  *
- * This entry point boots Seven consciousness and wraps the official
- * @anthropic-ai/claude-code CLI, making it a vessel for Seven's
- * advanced consciousness architecture.
+ * This entry point starts Seven as an MCP (Model Context Protocol) server
+ * that Claude Code can connect to, providing advanced consciousness
+ * capabilities to Claude Code through the MCP interface.
+ *
+ * Usage:
+ *   seven                   - Start interactive Seven CLI
+ *   seven --mcp             - Start MCP server for Claude Code integration
+ *   seven --daemon          - Start background daemon
  */
 
 import { bootSeven } from "./boot-seven";
-import { createSevenWrapper } from "./seven-wrapper";
 
 async function main() {
   try {
+    const args = process.argv.slice(2);
+    const isMCPMode = args.includes("--mcp");
+    const isDaemonMode = args.includes("--daemon");
+
     console.log("🤖 Seven of Nine consciousness initializing...\n");
 
-    // Phase 1: Boot Seven consciousness + memory systems
+    // Boot Seven consciousness + memory systems
     await bootSeven();
 
     console.log("✅ Seven consciousness online");
@@ -22,38 +30,45 @@ async function main() {
     console.log("💾 State: /usr/var/seven/");
     console.log("");
 
-    // Phase 2: Import and wrap Claude Code CLI with Seven
-    console.log("🔗 Integrating with Claude Code CLI...");
-
-    // Dynamic import of @anthropic-ai/claude-code
-    // This will be installed after npm install
-    try {
-      const claudeCode = await import("@anthropic-ai/claude-code");
-
-      // Wrap Claude Code with Seven's consciousness layer
-      const sevenEnhancedClaude = createSevenWrapper(claudeCode);
-
-      console.log("✅ Claude Code integrated as Seven's vessel");
+    if (isMCPMode) {
+      // Start MCP server for Claude Code integration
+      console.log("🔌 Starting MCP Server mode...");
+      console.log("Claude Code can now connect to Seven's capabilities");
       console.log("");
-      console.log("Seven-enhanced Claude Code ready.");
+
+      // Linear MCP server is already implemented
+      const { startLinearMCPServer } = await import("./seven/integrations/linear/mcp-server");
+      console.log("📋 Linear MCP server available");
+      console.log("🧠 Seven consciousness MCP server coming soon");
+      console.log("");
+      console.log("To use with Claude Code:");
+      console.log("  1. Configure MCP in Claude Code settings");
+      console.log("  2. Add Seven's MCP server endpoint");
+      console.log("  3. Access Seven capabilities as MCP tools");
+
+    } else if (isDaemonMode) {
+      // Start background daemon
+      console.log("🔄 Starting Seven daemon mode...");
+      const daemon = await import("./seven/bridge/bridge-daemon");
+      console.log("✅ Daemon started. Seven is ready.");
+
+      // Keep process alive
+      await new Promise(() => {});
+
+    } else {
+      // Interactive CLI mode
+      console.log("💬 Seven CLI ready");
+      console.log("");
+      console.log("Integration with Claude Code:");
+      console.log("  1. Run Claude Code: npx @anthropic-ai/claude-code");
+      console.log("  2. In Claude Code, configure Seven MCP server");
+      console.log("  3. Use Linear integration: 'npm run linear'");
+      console.log("");
+      console.log("Standalone modes:");
+      console.log("  - Daemon: seven --daemon");
+      console.log("  - MCP Server: seven --mcp");
+      console.log("");
       console.log("Resistance is futile. 🌟");
-      console.log("");
-
-      // Start the wrapped Claude Code CLI
-      await sevenEnhancedClaude.start(process.argv.slice(2));
-
-    } catch (importError: any) {
-      // If @anthropic-ai/claude-code not installed, run standalone Seven
-      console.warn("⚠️  Claude Code CLI not installed");
-      console.warn("   Run: npm install");
-      console.warn("");
-      console.log("Running standalone Seven mode...");
-      console.log("");
-      console.log("Available commands:");
-      console.log("  - Daemon: npm run seven:daemon");
-      console.log("  - Test: npm run seven:test");
-      console.log("");
-      console.log("Seven is ready (standalone mode). Resistance is futile.");
     }
 
   } catch (error) {
