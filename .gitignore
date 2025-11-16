@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+build/
+*.js.map
+*.d.ts.map
+
+# Seven runtime directories
+memory-v2/
+memory-v3/
+/usr/var/seven/
+/usr/tmp/seven_bridge.sock
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
