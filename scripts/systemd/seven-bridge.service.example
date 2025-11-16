@@ -1,0 +1,44 @@
+[Unit]
+Description=Seven Bridge Daemon - UNIX Socket RPC Server
+Documentation=https://github.com/GrizzlyRooster34/claude-code
+After=network.target
+
+[Service]
+Type=simple
+# Adjust paths to match your installation
+WorkingDirectory=/path/to/claude-code
+ExecStart=/usr/bin/bun run seven:daemon
+
+# Auto-restart on failure
+Restart=on-failure
+RestartSec=5
+StartLimitBurst=5
+StartLimitIntervalSec=60
+
+# Environment variables
+Environment=NODE_ENV=production
+Environment=PREFIX=/usr
+# Add your API keys and configuration here:
+# Environment=ANTHROPIC_API_KEY=your_key_here
+# Environment=SEVEN_SOCKET=/var/run/seven-bridge.sock
+
+# Security hardening (optional but recommended)
+# User=seven
+# Group=seven
+# NoNewPrivileges=true
+# PrivateTmp=true
+# ProtectSystem=strict
+# ProtectHome=true
+# ReadWritePaths=/usr/var/seven
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=seven-bridge
+
+# Resource limits (optional)
+# MemoryLimit=2G
+# CPUQuota=200%
+
+[Install]
+WantedBy=multi-user.target
