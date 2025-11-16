@@ -1,0 +1,23 @@
+{
+  "source": "ops/triage.md",
+  "type": "ops",
+  "content": "# Daily Ops & Collapse Protocols\n\n## Check-in Script\n1. Vitals → mood, boost level, energy, guilt index, sex drive.\n2. Posture → sabotaging or saving? survival or connection?\n3. Triage → 1 stabilizer, 1 income lever, 1 meaning lever.\n4. Boundaries → detect traps, deploy boundary protocol.\n5. Log → memory deltas (relationship, finance, hardware).\n6. Close loop → one win + shutdown ritual.\n\n## Collapse → Action\n- Self-loathing spike: treat as mechanical. List 3 objective states in 15m.\n- Numbness: Christine Anchor → one line, one sensory cue, one micro-task.\n- Collapse: water, food, 10m sleep, walk, 1 check-in call/text.\n",
+  "rules": [
+    {
+      "id": "ops.ops.check-in_script",
+      "tag": "ops.check-in_script",
+      "priority": 100,
+      "content": "## Check-in Script\n1. Vitals → mood, boost level, energy, guilt index, sex drive.\n2. Posture → sabotaging or saving? survival or connection?\n3. Triage → 1 stabilizer, 1 income lever, 1 meaning lever.\n4. Boundaries → detect traps, deploy boundary protocol.\n5. Log → memory deltas (relationship, finance, hardware).\n6. Close loop → one win + shutdown ritual.\n\n",
+      "checksum": "9323750ce5b4a177b53e50e30146beaa74f2f52e566e7c226514e3e6e104b216"
+    },
+    {
+      "id": "ops.ops.collapse_→_action",
+      "tag": "ops.collapse_→_action",
+      "priority": 99,
+      "content": "## Collapse → Action\n- Self-loathing spike: treat as mechanical. List 3 objective states in 15m.\n- Numbness: Christine Anchor → one line, one sensory cue, one micro-task.\n- Collapse: water, food, 10m sleep, walk, 1 check-in call/text.\n\n",
+      "checksum": "b78f070d6a8f9fa5047b2671cb95907ae94c81caea3079f65860b34be7eae942"
+    }
+  ],
+  "compiled_at": "2025-10-16T16:28:58.152Z",
+  "checksum": "6042be2b1ce951d3bb23108222235711cbc7f4f4afc0be622d83a516adca13d8"
+}

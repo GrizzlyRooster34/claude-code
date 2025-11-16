@@ -1,0 +1,35 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Claude Code with Seven of Nine - Isolated launcher
+# This ensures Seven version doesn't conflict with main Claude Code installation
+
+# Seven-specific environment isolation
+export SEVEN_SOCKET="${SEVEN_SOCKET:-/data/data/com.termux/files/usr/tmp/seven_bridge.sock}"
+export SEVEN_STATE_DIR="${SEVEN_STATE_DIR:-/data/data/com.termux/files/usr/var/seven}"
+export SEVEN_VAULT_DIR="${SEVEN_VAULT_DIR:-/data/data/com.termux/files/usr/var/seven}"
+export SEVEN_FUEL="${SEVEN_FUEL:-/data/data/com.termux/files/usr/var/seven/fuel.json}"
+export SEVEN_MEM="${SEVEN_MEM:-/data/data/com.termux/files/usr/var/seven/memory.json}"
+
+# Seven LLM server config (if using local model)
+export SEVEN_LLAMA_PORT="${SEVEN_LLAMA_PORT:-8080}"
+export SEVEN_LLAMA_HOST="${SEVEN_LLAMA_HOST:-127.0.0.1}"
+export SEVEN_LLAMA_MODEL="${SEVEN_LLAMA_MODEL:-$HOME/models/llama/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf}"
+
+# Separate config from main Claude Code (if you want isolation)
+# Uncomment if you want completely separate config/credentials:
+# export CLAUDE_CONFIG_DIR="$HOME/.claude-seven"
+# export CLAUDE_CACHE_DIR="$HOME/.cache/claude-seven"
+
+# Launch from Seven integration directory
+SEVEN_DIR="/data/data/com.termux/files/home/claude-code"
+cd "$SEVEN_DIR" || exit 1
+
+# Run via npx tsx (preferred) or bun
+if command -v npx &>/dev/null; then
+  exec npx tsx src/index.ts "$@"
+elif command -v bun &>/dev/null; then
+  exec bun run src/index.ts "$@"
+else
+  echo "Error: Neither npx nor bun found"
+  echo "Install Node.js/npm to get npx"
+  exit 1
+fi

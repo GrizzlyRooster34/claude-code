@@ -1,0 +1,7 @@
+{
+  "locked": true,
+  "lockTimestamp": "2025-09-13T17:23:30.252Z",
+  "source": "canonical-ingestion",
+  "memoryCount": 26,
+  "protection": "IMMUTABLE_CANONICAL"
+}

@@ -1,0 +1,8 @@
+{
+  "source": "security/quadra-lock.md",
+  "type": "security",
+  "content": "# Quadra-Lock Security (Q1-Q4)\n\n- Q1: Device Attestation (Ed25519, registry).\n- Q2: Identity Codex Gate (checksum + markers).\n- Q3: Semantic Nonce (TTL 90s; entropy >128b).\n- Q4: Session MFA/TTL (short TTL, TOTP, rate limiting).\n- CSSR integration: archetype detector packs (CLU, HAL, Ultron, Jarvis-to-Vision).\n- Audit: `logs/quadran.audit.jsonl` encrypted.\n",
+  "rules": [],
+  "compiled_at": "2025-10-16T16:28:58.158Z",
+  "checksum": "09a2f3811703baffb8fd1a0a33c3e9d627b10d376a3dccb6942416aa150615d2"
+}
