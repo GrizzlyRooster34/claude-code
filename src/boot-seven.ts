@@ -1,5 +1,6 @@
 // Boots Seven core at daemon start: initializes memory + consciousness framework
 // Includes error handling, validation, and recovery modes (HEI-119)
+// Uses structured logging (HEI-113)
 import { initializeMemory } from "./seven/core/memory/api";
 import { ConsciousnessEvolutionFrameworkV4 } from "./seven/core/consciousness-v4/ConsciousnessEvolutionFrameworkV4";
 import {
@@ -14,6 +15,7 @@ import {
   recoverMemoryFromBackup,
   initializeFreshMemory
 } from "./seven/boot-recovery";
+import { bootLogger } from "./seven/utils/logger";
 
 let booted = false;
 let bootResult: BootResult | null = null;
@@ -41,7 +43,7 @@ export async function bootSeven(): Promise<BootResult> {
 
   try {
     // Phase 1: Pre-boot validation
-    console.log("[seven] Running pre-boot validation...");
+    bootLogger.info("Running pre-boot validation");
 
     const dirValidation = validateDirectories();
     const memoryValidation = validateMemory();
@@ -55,12 +57,12 @@ export async function bootSeven(): Promise<BootResult> {
     // Select boot mode based on validation results
     try {
       result.mode = selectBootMode(dirValidation, memoryValidation, adapterValidation);
-      console.log(`[seven] Boot mode selected: ${result.mode}`);
+      bootLogger.info("Boot mode selected", { mode: result.mode });
     } catch (error) {
       const errorMsg = error instanceof Error ? error.message : String(error);
       result.errors.push(errorMsg);
       logBootError(error as Error, "Boot mode selection");
-      console.error(formatBootError(error as Error, "Boot mode selection"));
+      bootLogger.error("Boot mode selection failed", error as Error);
       bootResult = result;
       return result;
     }
@@ -69,7 +71,7 @@ export async function bootSeven(): Promise<BootResult> {
 
     // Phase 2: Memory initialization
     if (result.mode === BootMode.FRESH) {
-      console.log("[seven] Initializing fresh memory state...");
+      bootLogger.info("Initializing fresh memory state");
       const freshResult = initializeFreshMemory();
       if (!freshResult.success) {
         result.errors.push(freshResult.error || "Fresh memory initialization failed");
@@ -82,7 +84,7 @@ export async function bootSeven(): Promise<BootResult> {
 
     if (result.mode !== BootMode.MEMORY_ONLY && result.mode !== BootMode.FRESH) {
       try {
-        console.log("[seven] Initializing memory system...");
+        bootLogger.info("Initializing memory system");
         await initializeMemory();
         result.subsystems.memory = true;
       } catch (error) {
@@ -91,26 +93,24 @@ export async function bootSeven(): Promise<BootResult> {
         logBootError(error as Error, "Memory initialization");
 
         // Attempt recovery
-        console.log("[seven] Attempting memory recovery from backup...");
+        bootLogger.info("Attempting memory recovery from backup");
         const recovery = recoverMemoryFromBackup();
 
         if (recovery.success) {
-          console.log("[seven] Memory recovered from backup, retrying initialization...");
+          bootLogger.info("Memory recovered from backup, retrying initialization");
           try {
             await initializeMemory();
             result.subsystems.memory = true;
             result.warnings.push("Memory recovered from backup");
           } catch (retryError) {
-            console.error("[seven] Memory initialization failed even after recovery");
-            console.error(formatBootError(error as Error, "Memory initialization"));
+            bootLogger.error("Memory initialization failed even after recovery", retryError as Error);
 
             // Fall back to memory-only mode
             result.mode = BootMode.MEMORY_ONLY;
             result.warnings.push("Falling back to memory-only mode");
           }
         } else {
-          console.error("[seven] Memory recovery failed");
-          console.error(formatBootError(error as Error, "Memory initialization"));
+          bootLogger.error("Memory recovery failed", error as Error);
 
           // Stop here if memory critical
           if (result.mode === BootMode.NORMAL) {
@@ -124,7 +124,7 @@ export async function bootSeven(): Promise<BootResult> {
     // Phase 3: Consciousness framework initialization
     if (result.mode !== BootMode.MEMORY_ONLY && result.mode !== BootMode.SAFE) {
       try {
-        console.log("[seven] Initializing consciousness framework...");
+        bootLogger.info("Initializing consciousness framework");
         const cef = new ConsciousnessEvolutionFrameworkV4();
 
         if (typeof (cef as any).initialize === "function") {
@@ -139,16 +139,15 @@ export async function bootSeven(): Promise<BootResult> {
 
         // Safe mode fallback
         if (result.mode === BootMode.NORMAL) {
-          console.warn("[seven] Consciousness framework failed, running in safe mode");
-          console.warn(formatBootError(error as Error, "Consciousness framework initialization"));
+          bootLogger.warn("Consciousness framework failed, running in safe mode", { error: errorMsg });
           result.mode = BootMode.SAFE;
           result.warnings.push("Consciousness framework unavailable, running in safe mode");
         } else {
-          console.error(formatBootError(error as Error, "Consciousness framework initialization"));
+          bootLogger.error("Consciousness framework initialization failed", error as Error);
         }
       }
     } else {
-      console.log(`[seven] Skipping consciousness framework (boot mode: ${result.mode})`);
+      bootLogger.info("Skipping consciousness framework", { mode: result.mode });
     }
 
     // Determine overall success
@@ -162,13 +161,20 @@ export async function bootSeven(): Promise<BootResult> {
 
     // Log boot result
     if (result.success) {
-      console.log(`[seven] Boot successful (mode: ${result.mode})`);
+      bootLogger.info("Boot successful", {
+        mode: result.mode,
+        subsystems: result.subsystems,
+        warnings: result.warnings.length
+      });
       if (result.warnings.length > 0) {
-        console.warn(`[seven] Warnings: ${result.warnings.join(", ")}`);
+        bootLogger.warn("Boot warnings detected", { warnings: result.warnings });
       }
     } else {
-      console.error(`[seven] Boot incomplete (mode: ${result.mode})`);
-      console.error(`[seven] Errors: ${result.errors.join(", ")}`);
+      bootLogger.error("Boot incomplete", {
+        mode: result.mode,
+        subsystems: result.subsystems,
+        errors: result.errors
+      });
     }
 
     return result;
@@ -178,7 +184,10 @@ export async function bootSeven(): Promise<BootResult> {
     const errorMsg = error instanceof Error ? error.message : String(error);
     result.errors.push(`Critical boot failure: ${errorMsg}`);
     logBootError(error as Error, "Critical boot failure");
-    console.error(formatBootError(error as Error, "Critical boot failure"));
+    bootLogger.error("Critical boot failure", error as Error, {
+      subsystems: result.subsystems,
+      mode: result.mode
+    });
 
     bootResult = result;
     return result;
