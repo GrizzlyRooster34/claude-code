@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { STATE_DIR, LOG_DIR, MEM_PATH, ensureDirs } from "./bridge/paths";
 import { listBackups, restoreFromBackup } from "./bridge/memory-integrity";
+import { bootLogger } from "./utils/logger";
 
 // ES module compatibility for __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -281,10 +282,10 @@ export function selectBootMode(
   if (!memoryValidation.valid) {
     const recovery = recoverMemoryFromBackup();
     if (recovery.success) {
-      console.log("[boot-recovery] Memory recovered from backup");
+      bootLogger.info("Memory recovered from backup");
       return BootMode.NORMAL;
     } else {
-      console.log("[boot-recovery] Memory recovery failed, initializing fresh state");
+      bootLogger.info("Memory recovery failed, initializing fresh state");
       const fresh = initializeFreshMemory();
       if (fresh.success) {
         return BootMode.FRESH;
@@ -296,7 +297,7 @@ export function selectBootMode(
 
   // If adapters missing but memory valid, use safe mode
   if (!adapterValidation.valid) {
-    console.warn("[boot-recovery] No LLM adapters available, using safe mode");
+    bootLogger.warn("No LLM adapters available, using safe mode");
     return BootMode.SAFE;
   }
 
