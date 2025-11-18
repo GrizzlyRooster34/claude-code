@@ -45,6 +45,8 @@
     "@noble/ed25519": "^3.0.0",
     "lz4js": "^0.2.0",
     "openai": "^6.9.0",
+    "pino": "^10.1.0",
+    "pino-pretty": "^13.1.2",
     "reflect-metadata": "^0.1.14",
     "sql.js": "^1.13.0",
     "tsyringe": "^4.10.0",
