@@ -24,6 +24,8 @@ apikeys.*
 /checkpoints/
 /usr/var/seven/
 *.audit.jsonl
+*.sock
+*.socket
 episodic-memories.json
 temporal-memories.json
 consciousness-state.json
