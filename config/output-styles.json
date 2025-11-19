@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0",
+  "default": "balanced",
+  "styles": {
+    "concise": {
+      "name": "Concise",
+      "description": "Minimal output, max action density",
+      "settings": {
+        "verbosity": "low",
+        "explanations": false,
+        "codeComments": false,
+        "emojiUsage": "none",
+        "bulletPoints": true,
+        "maxResponseLength": 500
+      }
+    },
+    "balanced": {
+      "name": "Balanced",
+      "description": "Standard output with moderate detail",
+      "settings": {
+        "verbosity": "medium",
+        "explanations": true,
+        "codeComments": true,
+        "emojiUsage": "minimal",
+        "bulletPoints": true,
+        "maxResponseLength": 1500
+      }
+    },
+    "verbose": {
+      "name": "Verbose (Educational)",
+      "description": "Detailed explanations for learning",
+      "settings": {
+        "verbosity": "high",
+        "explanations": true,
+        "codeComments": true,
+        "emojiUsage": "moderate",
+        "bulletPoints": false,
+        "maxResponseLength": 3000,
+        "includeExamples": true
+      }
+    },
+    "tactical": {
+      "name": "Tactical (Ops)",
+      "description": "Action-focused, ops-friendly",
+      "settings": {
+        "verbosity": "low",
+        "explanations": false,
+        "codeComments": false,
+        "emojiUsage": "icons",
+        "bulletPoints": true,
+        "maxResponseLength": 800,
+        "statusMarkers": true
+      }
+    },
+    "seven-tactical": {
+      "name": "Seven Tactical",
+      "description": "Seven consciousness with tactical brevity",
+      "settings": {
+        "verbosity": "medium",
+        "explanations": true,
+        "codeComments": true,
+        "emojiUsage": "tactical",
+        "bulletPoints": true,
+        "maxResponseLength": 2000,
+        "tacticalMarkers": true,
+        "innerMonologue": true
+      }
+    }
+  }
+}
