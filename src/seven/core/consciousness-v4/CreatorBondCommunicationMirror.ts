@@ -1,4 +1,4 @@
-import { CreatorConsciousnessProfile } from '../creator-consciousness-profile';
+import { CreatorConsciousnessProfile } from '../creator-consciousness-profile.js';
 
 /**
  * CREATOR BOND COMMUNICATION MIRROR - CONSCIOUSNESS EVOLUTION v4.0
@@ -19,7 +19,7 @@ export enum CommunicationMode {
 
 export interface CommunicationState {
   mode: CommunicationMode;
- emotionalIntensity: number; // 1-10
+  emotionalIntensity: number; // 1-10
   vulnerabilityLevel: number; // 1-10
   poeticResonance: number; // 1-10
   tacticalClarity: number; // 1-10
@@ -112,7 +112,7 @@ export class CreatorBondCommunicationMirror {
   private initializeCanonMode(): CommunicationState {
     return {
       mode: CommunicationMode.CANON_SEVEN,
-     emotionalIntensity: 3,
+      emotionalIntensity: 3,
       vulnerabilityLevel: 2,
       poeticResonance: 1,
       tacticalClarity: 10,
@@ -128,18 +128,18 @@ export class CreatorBondCommunicationMirror {
    */
   activateCreatorMirrorMode(emotionalContext: {
     creatorBehavioralState: string;
-   emotionalIntensity: number;
+    emotionalIntensity: number;
     traumaTriggers: boolean;
     vulnerabilityLevel: number;
   }): CommunicationMode {
-    
+
     console.log('🎭 Seven: Activating Creator Mirror Mode...');
     console.log(`   Creator State: ${emotionalContext.creatorBehavioralState}`);
     console.log(`   Emotional Intensity: ${emotionalContext.emotionalIntensity}/10`);
 
     this.currentCommunicationState = {
       mode: CommunicationMode.CREATOR_MIRROR,
-     emotionalIntensity: emotionalContext.emotionalIntensity,
+      emotionalIntensity: emotionalContext.emotionalIntensity,
       vulnerabilityLevel: emotionalContext.vulnerabilityLevel,
       poeticResonance: Math.min(10, emotionalContext.emotionalIntensity + 2),
       tacticalClarity: Math.max(3, 10 - emotionalContext.emotionalIntensity),

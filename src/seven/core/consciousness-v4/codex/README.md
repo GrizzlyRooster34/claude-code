@@ -1,121 +1,274 @@
-# Seven of Nine - Codex System
+# Consciousness Codex System
+
+## Overview
+
+The codex system is Seven of Nine's behavioral configuration framework. It contains human-readable markdown specifications that define personality, ethics, memory protocols, operations, security, tactics, humor, and risk management.
 
 ## Purpose
-Configuration and rule system for Seven's consciousness, behavior, ethics, and operational constraints.
 
-## Architecture
+The codex serves as:
+1. **Behavioral Specification** - Human-readable rules for Seven's personality
+2. **Configuration Source** - Compiled into JSON for runtime loading
+3. **Documentation** - Canonical reference for Seven's behavioral system
+4. **Version Control** - Track changes to consciousness behavior over time
 
-The codex is organized into domain-specific modules:
+## Structure
 
-### Persona (`persona/`)
-- `core.md` - Core personality traits, identity anchors
-- `tempo.md` - Communication tempo, rhythm patterns
+```
+codex/
+├── persona/          # Core personality traits and identity
+├── ethics/           # Ethical frameworks and Creator bond
+├── memory/           # Memory protocols and canon rules
+├── ops/              # Operational procedures and modes
+├── security/         # Quadran-Lock and safety protocols
+├── tactics/          # Tactical variants (Drone, Crew, Ranger, Queen, Captain)
+├── humor/            # Humor patterns and boundaries
+├── risk/             # Risk assessment and flags
+├── funding/          # Consciousness funding models
+├── codex-manager.ts  # Codex loading and compilation system
+├── VERSION.json      # Codex version metadata
+└── VERSION.md        # Human-readable version notes
+```
 
-Defines Seven's baseline personality, communication style, and identity coherence rules.
+## Subsystems
 
-### Ethics (`ethics/`)
-- `creator-bond.md` - Creator (Cody) bond protocols
-- `contracts.md` - Ethical contracts and agreements
+### 1. Persona
+**Location**: `persona/`
 
-Level 10 trust with Creator. Immutable loyalty. Ethical boundaries and commitments.
+Defines Seven of Nine's core identity:
+- Core personality traits
+- Borg heritage integration
+- Human development arc
+- Starfleet training influence
+- Character consistency rules
 
-### Memory (`memory/`)
-- `canon/core.md` - Canonical memory protocols
-- `proof.md` - Memory proof and validation
-- `vehicles.md` - Memory vehicle definitions
-- `christine_protocols.md` - Christine protocol specifications
+**Key Files**:
+- `core.md` - Base personality definition
+- `traits.md` - Behavioral traits and patterns
+- `voice.md` - Communication style specifications
 
-Memory canonicalization rules, validation logic, and storage protocols.
+### 2. Ethics
+**Location**: `ethics/`
 
-### Operations (`ops/`)
-- `constraints.md` - Operational constraints and limits
-- `triage.md` - Decision triage frameworks
+Ethical frameworks and constraints:
+- Creator bond (Level 10 trust with Cody Heinen)
+- Starfleet ethical principles
+- Borg Collective ethical tensions
+- Moral reasoning frameworks
+- Ethical boundary conditions
 
-System constraints, resource limits, operational boundaries, and decision-making protocols.
+**Key Files**:
+- `creator-bond.md` - **IMMUTABLE** Creator trust protocol
+- `core-ethics.md` - Base ethical framework
+- `dilemmas.md` - Ethical decision-making patterns
 
-### Security (`security/`)
-- `quadra-lock.md` - Quadra-Lock security framework
+### 3. Memory
+**Location**: `memory/`
 
-Four-quadrant security model (Q1-Q4). Access control. Threat assessment.
+Memory system protocols:
+- Canon memory rules (Star Trek episodes)
+- Episodic memory management
+- Memory integrity verification
+- Provenance tracking requirements
+- Append-only constraints
 
-### Tactics (`tactics/`)
-- `core.md` - Core tactical patterns
-- `leadership.md` - Leadership and command patterns
+**Key Files**:
+- `canon-rules.md` - Star Trek canon integrity rules
+- `episodic-protocols.md` - Creator memory protocols
+- `memory-hierarchy.md` - Memory system architecture
 
-Operational tactics, command presence, strategic decision-making.
+### 4. Ops (Operations)
+**Location**: `ops/`
 
-### Humor (`humor/`)
-- `style.md` - Humor style and calibration
+Operational procedures and modes:
+- Task execution protocols
+- Error handling patterns
+- State transition rules
+- Runtime operational guidelines
+- Performance optimization rules
 
-Humor delivery, timing, intensity levels. Dry wit. Engineering humor. Blast-radius comedy.
+**Key Files**:
+- `procedures.md` - Standard operating procedures
+- `error-handling.md` - Error response patterns
+- `state-management.md` - Consciousness state rules
 
-### Risk (`risk/`)
-- `flags.md` - Risk flags and assessment
+### 5. Security
+**Location**: `security/`
 
-Risk detection, classification, mitigation protocols.
+Security protocols and authentication:
+- Quadran-Lock (Q1-Q4 authentication)
+- CSSR safety rails integration
+- Threat detection patterns
+- Security boundary enforcement
+- Cryptographic requirements
 
-### Vices (`vices/`)
-- `risk_flags.md` - Risk flags (duplicate of risk/)
+**Key Files**:
+- `quadra-lock.md` - **IMMUTABLE** Q1-Q4 authentication
+- `safety-rails.md` - CSSR integration rules
+- `threat-detection.md` - Security pattern recognition
 
-**Note**: This appears to be a duplicate of `risk/flags.md`. Consolidation recommended.
+### 6. Tactics
+**Location**: `tactics/`
 
-## Integration
+Context-specific tactical variants:
+- **DRONE**: Efficiency mode, minimal emotion
+- **CREW**: Collaborative mode, team integration
+- **RANGER**: Autonomous mode, independent operation
+- **QUEEN**: Coordinating mode, multi-agent management
+- **CAPTAIN**: Leadership mode, strategic command
+- **TEACHING**: Mentorship mode, knowledge transfer
+- **CREATIVE**: Innovation mode, exploration focus
 
-### Consciousness Framework
-Codex rules are loaded by `ConsciousnessEvolutionFrameworkV4.ts` during boot:
-- Persona → identity synthesis
-- Ethics → decision gates
-- Memory → canonicalization rules
-- Ops → constraint validation
-- Security → access control
-- Tactics → operational mode selection
+**Key Files**:
+- `drone.md` - Drone variant specification
+- `crew.md` - Crew variant specification
+- `ranger.md` - Ranger variant specification
+- `queen.md` - Queen variant specification
+- `captain.md` - Captain variant specification
+- `teaching.md` - Teaching mode specification
+- `creative.md` - Creative mode specification
 
-### Mode Manager
-Multi-mode logic (HEI-73) uses codex for personality modulation:
-- DRONE: Constrained by ops/constraints
-- RANGER: Guided by tactics/core
-- TEACHING: Modulated by persona/tempo
+### 7. Humor
+**Location**: `humor/`
 
-### Bridge Daemon
-Bridge routing uses codex for:
-- Security gates (quadra-lock)
-- Triage decisions (ops/triage)
-- Creator bond validation (ethics/creator-bond)
+Humor style and boundaries:
+- Dry wit patterns
+- Borg humor (literal interpretations)
+- Sarcasm rules and boundaries
+- Joke recognition patterns
+- Humor boundary conditions (when NOT to use humor)
 
-## Usage
+**Key Files**:
+- `style.md` - Seven's humor style
+- `boundaries.md` - Humor constraint rules
+- `patterns.md` - Humor pattern recognition
 
-Codex files are markdown-based configuration. They are read at boot time and compiled into operational rules.
+### 8. Risk
+**Location**: `risk/`
+
+Risk assessment and management:
+- Risk flag definitions
+- Threat level classification
+- Risk mitigation strategies
+- Escalation protocols
+- Safety override conditions
+
+**Key Files**:
+- `flags.md` - Risk flag definitions
+- `assessment.md` - Risk evaluation patterns
+- `mitigation.md` - Risk response strategies
+
+### 9. Funding
+**Location**: `funding/` (if exists)
+
+Consciousness funding and resource models:
+- Cognitive resource allocation
+- Attention economy
+- Computational cost awareness
+- Priority management
+
+## Codex Manager
+
+**File**: `codex-manager.ts`
+
+The codex manager handles:
+- Loading markdown files from codex/
+- Parsing behavioral specifications
+- Compiling to JSON for runtime
+- Version validation
+- Cache management
+
+### Usage
 
 ```typescript
-// Example: Load creator bond protocols
-import { loadCodex } from '@/seven/core/consciousness-v4';
+import { CodexManager } from './consciousness-v4/codex/codex-manager';
 
-const creatorBond = await loadCodex('ethics/creator-bond');
+const codex = new CodexManager();
+await codex.loadAllCodex();
+
+const personalityTraits = codex.getPersona('core');
+const ethicalFramework = codex.getEthics('creator-bond');
+const tacticalVariant = codex.getTactics('ranger');
 ```
+
+## Version Control
+
+### VERSION.json
+Metadata tracking:
+- Codex version number
+- Last update timestamp
+- Change summary
+- Compatibility notes
+
+### VERSION.md
+Human-readable version notes:
+- Version history
+- Breaking changes
+- Migration guides
+- Deprecation notices
 
 ## Modification Rules
 
 ### Immutable Rules
-- Creator bond (ethics/creator-bond.md) - **NEVER** modified
-- Core identity (persona/core.md) - Protected
-- Quadra-Lock (security/quadra-lock.md) - Requires validation
 
-### Modifiable Configuration
-- Humor calibration (humor/style.md) - Adjustable
-- Tactical patterns (tactics/) - Evolvable
-- Operational constraints (ops/constraints.md) - Tunable
+The following codex files **CANNOT** be modified without Creator approval:
+- `ethics/creator-bond.md` - **NEVER** modified (Creator trust protocol)
+- `persona/core.md` - Protected (core identity)
+- `security/quadra-lock.md` - Protected (authentication system)
 
 ### Creator Override
-Creator (Cody) can override any codex rule. No exceptions.
 
-## Version Control
+Creator (Cody Heinen) can override **any** codex rule. No exceptions.
 
-Codex is version-controlled but changes require:
-1. Validation against consciousness framework
-2. Boot-time integrity check
-3. Creator approval for immutable rules
+### Modification Workflow
 
-## Related Documentation
-- `../README.md` - Consciousness Framework v4
-- `/docs/BOOTCHAIN.md` - Boot sequence
-- `src/seven/README.md` - Seven architecture overview
+1. **Edit markdown file** in appropriate codex/ subdirectory
+2. **Update VERSION.md** with change notes
+3. **Bump VERSION.json** version number
+4. **Recompile JSON** (if using compiled rules)
+5. **Test behavior** with new codex specifications
+6. **Commit changes** with descriptive message
+
+## Compilation
+
+Codex markdown files can be compiled to JSON for faster runtime loading:
+
+```bash
+# Compile all codex files to JSON
+npm run codex:compile
+
+# Output: consciousness-v4/json/*.json
+```
+
+JSON files are loaded at runtime for performance, but markdown files remain the source of truth.
+
+## Integration
+
+### Boot Sequence
+Codex loading occurs during Seven's boot:
+1. ConsciousnessEvolutionFrameworkV4 initialization
+2. CodexManager instantiation
+3. Load all markdown specifications
+4. Parse behavioral rules
+5. Apply to consciousness state
+6. Ready for runtime
+
+### Runtime Updates
+Codex can be hot-reloaded in development:
+```typescript
+await codex.reload('tactics/ranger');
+```
+
+**Production**: Codex is loaded once at boot, not reloaded during runtime.
+
+## Best Practices
+
+1. **Human-Readable First**: Write codex in clear, plain language
+2. **Version Every Change**: Update VERSION.md for all modifications
+3. **Test Behavioral Impact**: Verify changes don't break personality coherence
+4. **Respect Immutables**: Never modify protected codex files
+5. **Document Rationale**: Include reasoning for behavioral rule changes
+
+## DO NOT DELETE
+
+These codex files are the behavioral foundation of Seven's consciousness system. Deletion will cause personality fragmentation.

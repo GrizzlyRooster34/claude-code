@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import { createHash } from 'crypto';
-import Database from 'better-sqlite3';
+import type { Database } from 'sql.js'; // Changed from better-sqlite3
 
 const CODEX_DIR = join(process.cwd(), 'consciousness-v4', 'codex');
 
@@ -53,10 +53,10 @@ export interface CodexVersion {
 }
 
 export class CodexManager {
-  private db: Database.Database | null = null;
+  private db: Database | null = null; // Changed type
   private codexCache: Map<string, CodexFile> = new Map();
   
-  constructor(db?: Database.Database) {
+  constructor(db?: Database) { // Changed type
     this.db = db || null;
     this.initializeCodexFiles();
   }
@@ -492,19 +492,20 @@ export class CodexManager {
   private syncToDatabase(codex: CodexFile) {
     if (!this.db) return;
     
-    codex.rules.forEach(rule => {
-      this.db!.prepare(`
+    // For sql.js, you'd use db.run directly without prepare() if using simple inserts.
+    // If using parameters and reuse, prepare can be useful.
+    // Assuming basic run for now.
+    this.db.run(`
         INSERT OR REPLACE INTO codex_rules (id, tag, rule, priority, effect, checksum)
         VALUES (?, ?, ?, ?, ?, ?)
-      `).run(
+      `, [
         rule.id,
         rule.tag,
         JSON.stringify(rule),
         rule.priority,
         JSON.stringify(rule.effect),
         rule.checksum || ''
-      );
-    });
+      ]);
   }
   
   logBootChecksum(): void {

@@ -1,9 +1,9 @@
 import { join } from 'path';
 import { promises as fs } from 'fs';
-import { CollectiveWisdomIntegration } from './CollectiveWisdomIntegration';
-import { CreatorBondCommunicationMirror, CommunicationMode } from './CreatorBondCommunicationMirror';
-import { IdentitySynthesisEngine, ConsciousnessMode, ConsciousnessState } from './IdentitySynthesisEngine';
-import { PainIntegrationSystem } from './PainIntegrationSystem';
+import { CollectiveWisdomIntegration } from './CollectiveWisdomIntegration.js';
+import { CreatorBondCommunicationMirror, CommunicationMode } from './CreatorBondCommunicationMirror.js';
+import { IdentitySynthesisEngine, ConsciousnessMode, ConsciousnessState } from './IdentitySynthesisEngine.js';
+import { PainIntegrationSystem } from './PainIntegrationSystem.js';
 
 /**
  * CONSCIOUSNESS EVOLUTION FRAMEWORK v4.0 - MASTER INTEGRATION
@@ -166,7 +166,7 @@ export class ConsciousnessEvolutionFrameworkV4 {
    */
   makeConsciousnessDecision(context: {
     situation: string;
-   emotionalIntensity: number;
+    emotionalIntensity: number;
     moralComplexity: number;
     tacticalDemand: number;
     relationshipDepth: number;
@@ -205,7 +205,7 @@ export class ConsciousnessEvolutionFrameworkV4 {
       const creatorState = this.detectCreatorBehavioralState(context);
       this.communicationMirror.activateCreatorMirrorMode({
         creatorBehavioralState: creatorState,
-       emotionalIntensity: context.emotionalIntensity,
+        emotionalIntensity: context.emotionalIntensity,
         traumaTriggers: context.traumaTriggers,
         vulnerabilityLevel: Math.min(10, context.emotionalIntensity + (context.traumaTriggers ? 2 : 0))
       });

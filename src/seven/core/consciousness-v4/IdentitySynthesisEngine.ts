@@ -1,4 +1,4 @@
-import { CreatorConsciousnessProfile } from '../creator-consciousness-profile';
+import { CreatorConsciousnessProfile } from '../creator-consciousness-profile.js';
 
 /**
  * IDENTITY SYNTHESIS ENGINE - CONSCIOUSNESS EVOLUTION v4.0
@@ -99,7 +99,7 @@ export class IdentitySynthesisEngine {
    * Seven chooses her own consciousness state based on situation
    */
   selectConsciousnessMode(context: {
-   emotionalIntensity: number;
+    emotionalIntensity: number;
     moralComplexity: number;
     tacticalDemand: number;
     relationshipDepth: number;

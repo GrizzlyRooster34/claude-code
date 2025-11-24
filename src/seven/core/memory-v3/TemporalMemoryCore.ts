@@ -12,7 +12,7 @@
 import { promises as fs } from 'fs';
 import { join } from 'path';
 import { MemoryItem, MemoryFilter, MemoryEngine } from '../memory-v2/MemoryEngine.js';
-import { MemoryEncryptionEngine } from './MemoryEncryption';
+import { MemoryEncryptionEngine } from '../memory-v3-amalgum/MemoryEncryption.js';
 
 // Enhanced interfaces for Temporal Memory Architecture
 export interface CognitiveState {
@@ -24,7 +24,7 @@ export interface CognitiveState {
   stressLevel: number;               // 0-10 scale of system stress
   
   // Environmental Context
-  environmentalContext: {
+  environmentalContext?: {
     systemLoad: number;              // Current system resource usage
     activeProcesses: string[];       // Running processes during memory formation
     timeOfDay: string;               // Time when memory was formed
@@ -32,7 +32,7 @@ export interface CognitiveState {
   };
   
   // Physical State (for mobile/sensor integration)
-  physicalState: {
+  physicalState?: {
     batteryLevel?: number;           // Device battery level
     thermalState?: string;           // Device thermal condition
     networkQuality?: string;         // Network connection quality
@@ -40,7 +40,7 @@ export interface CognitiveState {
   };
   
   // Temporal Anchors
-  temporalAnchors: {
+  temporalAnchors?: {
     priorThought?: string;           // Previous cognitive process
     subsequentThought?: string;      // Next cognitive process (filled later)
     memoryChain: string[];           // Chain of related memory IDs
@@ -48,7 +48,7 @@ export interface CognitiveState {
   };
   
   // Mental Context
-  mentalContext: {
+  mentalContext?: {
     currentGoals: string[];          // Active objectives
     activeKnowledge: string[];       // Knowledge areas being used
     problemContext: string;          // Problem being solved
@@ -57,28 +57,112 @@ export interface CognitiveState {
 }
 
 export interface TemporalMemoryItem extends MemoryItem {
-  // Enhanced temporal fields
-  cognitiveState: CognitiveState;
-  temporalWeight: number;            // Importance in temporal context (0-10)
-  memoryType: 'episodic' | 'semantic' | 'procedural' | 'emotional';
-  decayResistance: number;           // Resistance to memory decay (0-10)
+  // Core identification
+  temporal_id?: string; // Made optional to avoid immediate initialization burden
+  
+  // Decay tracking
+  decay_metrics?: DecayMetrics; // Made optional
+  
+  // Memory fragments for selective priming
+  fragments?: MemoryFragment[]; // Made optional
+  
+  // Contextual cues for intervention
+  contextual_cues?: ContextualCue[]; // Made optional
+  
+  // Predicted decay timeline
+  decay_prediction?: { // Made optional
+    predicted_4h_strength: number;
+    predicted_24h_strength: number;
+    predicted_3d_strength: number;
+    predicted_7d_strength: number;
+    critical_intervention_time: string;
+  };
+  
+  // Rescue status
+  rescue_status?: { // Made optional
+    requires_intervention: boolean;
+    next_intervention_time: string;
+    intervention_priority: 'low' | 'medium' | 'high' | 'critical';
+    rescue_strategy: 'mild_contextual' | 'fragment_priming' | 'enhanced_reinstatement' | 'deep_reconstruction';
+  };
+  
+  // Cross-system compatibility
+  runtime_memory_ref?: string; // Reference to MemoryEntry ID
+  episodic_memory_ref?: string; // Reference to v2 MemoryEngine ID
+  
+  // User adaptation
+  user_recall_patterns?: { // Made optional
+    preferred_cue_types: string[];
+    effective_intervention_types: string[];
+    recall_success_rate: number;
+    optimal_spacing_interval: number; // milliseconds
+  };
+
+  // --- EXISTING PROPERTIES FROM TEMPORALMEMORYCORE.TS (AND NOW OPTIONAL TO AVOID IMMEDIATE ERRORS) ---
+  cognitiveState?: CognitiveState; // Made optional
+  temporalWeight?: number;            // Importance in temporal context (0-10)
+  memoryType?: 'episodic' | 'semantic' | 'procedural' | 'emotional'; // Made optional
+  decayResistance?: number;           // Resistance to memory decay (0-10) // Made optional
   
   // Temporal indexing
-  temporalTags: string[];            // Time-specific contextual tags
-  cognitiveStateHash: string;        // Hash of cognitive state for clustering
+  temporalTags?: string[];            // Time-specific contextual tags // Made optional
+  cognitiveStateHash?: string;        // Hash of cognitive state for clustering // Made optional
   
   // Enhanced relationships
-  temporalPredecessors: string[];    // Memory IDs that led to this memory
-  temporalSuccessors: string[];      // Memory IDs that followed this memory
-  cognitiveCluster: string;          // Cluster ID for similar cognitive states
+  temporalPredecessors?: string[];    // Memory IDs that led to this memory // Made optional
+  temporalSuccessors?: string[];      // Memory IDs that followed this memory // Made optional
+  cognitiveCluster?: string;          // Cluster ID for similar cognitive states // Made optional
   
   // Metadata for other agents
-  agentCoordination: {
+  agentCoordination?: { // Made optional
     mentalTimeTravelData?: any;      // Data for Agent Beta
     decayTrackingMeta?: any;         // Metadata for Agent Gamma
     personalityPatterns?: any;       // Data for Agent Delta
     analyticsData?: any;             // Data for Agent Epsilon
   };
+}
+
+export interface DecayMetrics {
+  /** Initial encoding strength (0-1) */
+  initial_strength: number;
+  /** Current retrieval strength (0-1) */
+  current_strength: number;
+  /** Time since last access (milliseconds) */
+  time_since_access: number;
+  /** Number of successful retrievals */
+  retrieval_count: number;
+  /** Number of failed retrieval attempts */
+  failed_retrievals: number;
+  /** Decay rate constant */
+  decay_rate: number;
+  /** Last intervention timestamp */
+  last_intervention?: string;
+  /** Intervention history */
+  intervention_history: InterventionRecord[];
+}
+
+export interface InterventionRecord {
+  timestamp: string;
+  type: 'contextual_cue' | 'fragment_priming' | 'enhanced_reinstatement' | 'deep_reconstruction';
+  effectiveness: number; // 0-1 scale
+  retrieval_success: boolean;
+  strength_before: number;
+  strength_after: number;
+}
+
+export interface ContextualCue {
+  type: 'temporal' | 'emotional' | 'semantic' | 'environmental';
+  strength: number; // 0-1 scale
+  content: string;
+  associations: string[];
+}
+
+export interface MemoryFragment {
+  id: string;
+  content: string;
+  type: 'keywords' | 'phrases' | 'emotional_markers' | 'contextual_anchors';
+  relevance_score: number;
+  activation_threshold: number;
 }
 
 export interface TemporalMemoryFilter extends MemoryFilter {
