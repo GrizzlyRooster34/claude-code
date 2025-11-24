@@ -1313,6 +1313,8 @@ export class CSSRDetector {
       }
     }
   ];
+    }
+  }
 
   /**
    * Detect dangerous patterns in input text

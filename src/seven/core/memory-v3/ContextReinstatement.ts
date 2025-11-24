@@ -227,7 +227,7 @@ export interface PhysicalContext {
   
   biologicalRhythms: {
     circadianPhase: string;
-    ultradian cycles: string;
+    ultradianCycles: string;
     performancePeaks: string[];
     biologicalOptimization: number;
   };
